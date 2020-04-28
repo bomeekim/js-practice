@@ -1,5 +1,7 @@
 /**
- * Lesson1 Iterations
+ * Lesson1 Iterations: BinaryGap
+ * Find longest sequence of zeros in binary representation of an integer.
+ * 
  * https://app.codility.com/c/run/trainingQA9NHA-EU8/
  */
 
