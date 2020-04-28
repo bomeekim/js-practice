@@ -20,23 +20,12 @@ function solution(A, K) {
     return A;
   }
 
-  let array = [];
-  let keepArray = [];
+  let array = Array.apply(null, new Array(A.length)).map(Number.prototype.valueOf, 0);
 
-  for (let i=A.length - 1; i>=0; i--) {
-    array.push(A[i]);
-
-    if (i >= K-1) {
-      keepArray = [].concat(...array);
-    }
+  for (let i=0; i<A.length; i++) {
+    let index = (i+K) % A.length;
+    array[index] = A[i];
   }
 
-  keepArray.reverse();
-
-  array.splice(0, K);
-  array.reverse();
-
-  keepArray.push(...array);
-
-  return keepArray;
+  return array;
 }
