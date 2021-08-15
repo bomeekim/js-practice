@@ -14,18 +14,8 @@ console.log(testCase0);
 // console.log(testCase2);
 
 function solution(A, K) {
-  // 배열과 K의 값이 같거나, 배열에 같은 요소가 있는 경우 A 그대로 리턴한다.
-  if ((A.length === K)
-    || (new Set(A).size !== A.length)) {
-    return A;
-  }
-
-  let array = Array.apply(null, new Array(A.length)).map(Number.prototype.valueOf, 0);
-
-  for (let i=0; i<A.length; i++) {
-    let index = (i+K) % A.length;
-    array[index] = A[i];
-  }
-
-  return array;
+  const shiftedNum = K > A.length ? K % A.length : K;
+  const removed = A.splice(-shiftedNum);
+  
+  return Array.from([ ...removed, ...A ]);
 }
